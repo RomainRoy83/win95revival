@@ -1,0 +1,22 @@
+.bar{
+  width: 100vw;
+  height: 20px;
+  background-color: #c0c0c0;
+  display: flex;
+  justify-content: space-between;
+
+  .item {
+    padding: 0 10px;
+    user-select: none;
+    border-left: solid 1px darkgrey;
+  }
+}
+
+.barLine {
+  width: 100vw;
+  height: 1px;
+  background-color: #ffffff;
+  z-index: 1;
+  margin-top: -2px;
+  opacity: .8;
+}
