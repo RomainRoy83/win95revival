@@ -1,14 +1,14 @@
-import Folder from './components/Folder'
-import Header from './components/Header'
-import Icons from './components/Icons'
+import Home from './screens/Home'
+
+import { IconContextProvider } from './contexts/IconContext'
 
 function App() {
   return (
-    <div className='app'>
-      <Header />
-      <Icons />
-      <Folder />
-    </div>
+    <IconContextProvider>
+      <div className='app'>
+        <Home />
+      </div>
+    </IconContextProvider>
   )
 }
 

@@ -5,15 +5,10 @@
   position: relative;
   color: black;
   left: 30%;
-  top: 10%;
-  border: solid darkgrey;
-  box-shadow: 1.5px 1.5px 1px;
-
-  .edging {
-    background-color: red;
-    height: inherit;
-    z-index: 1;
-  }
+  top: 100px;
+  border: solid 3px darkgrey;
+  box-shadow: 1.5px 1.5px 1px, -.5px -.5px white, -1.5px -1.5px darkgrey;
+  display: none;
 
   .topBar{
     background-color: darkblue;
@@ -22,19 +17,37 @@
     justify-content: space-between;
     user-select: none;
 
-    .folderName {
-      color: white;
-      margin: 1px 3px;
+    .topBarLeft {
+      display: flex;
+      justify-content: space-between;
+      width: 90px;
+      margin: 2px 3px;
+      
+      .folderName {
+        color: white;
+        align-items: center;
+        line-height: 1.2;
+      }
+
+      img {
+        width: 12px;
+      }
     }
 
+
     .close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: lightgrey;
       height: 14px;
       width: 14px;
-      text-align: center;
-      line-height: .95rem;
+      line-height: 0;
       margin: 3px;
-      box-shadow: 1px 1px; 
+      box-shadow: 1px 1px;
     }
   }
+}
+.displayed {
+  display: block;
 }

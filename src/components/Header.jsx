@@ -12,7 +12,6 @@ const Header = () => {
           <span className='date item'>Sam 2 Juil 1995</span>
         </aside>
       </div>
-      <div className='barLine'></div>
     </div>
   )
 }
