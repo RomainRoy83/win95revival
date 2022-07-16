@@ -1,22 +1,36 @@
-import computer from '../assets/img/icons/computer.png'
+import { useContext } from 'react'
+
+import IconContext from '../contexts/IconContext'
 
 const Folder = () => {
+  const { activeIcon } = useContext(IconContext)
+
   return (
-    <div className='folder'>
-      <div className='topBar'>
-        <div className='topBarLeft'>
-          <div className='folderIcon'>
-            <img src={computer} alt='computer' />
+    <div className='folders'>
+      {activeIcon.iconObjects.map((el, index) => (
+        <div id={`folder${el.id}`} key={index} className='folder'>
+          <div className='topBar'>
+            <div className='topBarLeft'>
+              <div className='folderIcon'>
+                <img src={el.name} alt='computer' />
+              </div>
+              <div className='folderName'>{el.text}</div>
+            </div>
+            <div className='topBarRight'>
+              <div
+                className='close'
+                onClick={() => {
+                  const activeFolder = document.getElementById(`folder${el.id}`)
+                  activeFolder.classList.toggle('displayed')
+                }}
+              >
+                <div className='x'>X</div>
+              </div>
+            </div>
           </div>
-          <div className='folderName'>My computer</div>
+          <div className='folderContent'></div>
         </div>
-        <div className='topBarRight'>
-          <div className='close'>
-            <div className='x'>X</div>
-          </div>
-        </div>
-      </div>
-      <div className='folderContent'></div>
+      ))}
     </div>
   )
 }

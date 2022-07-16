@@ -1,11 +1,16 @@
+.folders {
+  width: 100vw;
+  height: 100vh;
+}
+
 .folder {
   width: 500px;
   height: 400px;
   background-color: white;
-  position: relative;
+  position: absolute;
   color: black;
-  left: 30%;
-  top: 100px;
+  top: 10%;
+  left: 20%;
   border: solid 3px darkgrey;
   box-shadow: 1.5px 1.5px 1px, -.5px -.5px white, -1.5px -1.5px darkgrey;
   display: none;
@@ -20,7 +25,8 @@
     .topBarLeft {
       display: flex;
       justify-content: space-between;
-      width: 90px;
+      width: fit-content;
+      gap: 10px;
       margin: 2px 3px;
       
       .folderName {
@@ -48,6 +54,37 @@
     }
   }
 }
+
+#folder2 {
+  top: 5%;
+  left: 15%;
+}
+
+#folder3 {
+  top: 18%;
+  left: 32%;
+}
+
+#folder4 {
+  top: 22%;
+  left: 25%;
+}
+
+#folder5 {
+  top: 26%;
+  left: 34%;
+}
+
+#folder6 {
+  top: 20%;
+  left: 36%;
+}
+
+#folder7 {
+  top: 34%;
+  left: 40%;
+}
+
 .displayed {
   display: block;
 }

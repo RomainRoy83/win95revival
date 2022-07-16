@@ -7,8 +7,7 @@ const Icons = () => {
   const folder = document.getElementsByClassName('folder')
 
   const doubleClicked = () => {
-    folder[0].classList.add('displayed')
-    console.log(folder)
+    folder[activeIcon.activeIconObject.id - 1].classList.add('displayed')
   }
 
   //Determine active icon
@@ -29,9 +28,9 @@ const Icons = () => {
   }
 
   return (
+    //Display all icons
     <div className='icons'>
-      //Display all icons
-      {activeIcon.iconObjects.map((elements, index) => (
+      {activeIcon.iconObjects.map((el, index) => (
         <div
           id={index + 1}
           key={index}
@@ -40,9 +39,9 @@ const Icons = () => {
           }}
           onDoubleClick={doubleClicked}
         >
-          <img src={elements.name} alt={elements.alt} draggable='false' />
+          <img src={el.name} alt={el.alt} draggable='false' />
           <div className='textContainer'>
-            <p className={toggleActiveStyles(index)}>{elements.text}</p>
+            <p className={toggleActiveStyles(index)}>{el.text}</p>
           </div>
         </div>
       ))}
