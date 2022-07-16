@@ -6,7 +6,6 @@
   width: 70px;
   margin: 20px 20px;
   text-align: center;
-  cursor: url('../img/select.png');
   user-select: none;
   text-align: center;
 
@@ -17,5 +16,6 @@
   p {
     display: inline-block;
     padding: 0 2px;
+    background-color: teal;
     }
 }

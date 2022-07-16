@@ -2,6 +2,8 @@ import { useContext } from 'react'
 
 import IconContext from '../contexts/IconContext'
 
+import close from '../assets/img/ui/close.png'
+
 const Folder = () => {
   const { activeIcon } = useContext(IconContext)
 
@@ -24,11 +26,12 @@ const Folder = () => {
                   activeFolder.classList.toggle('displayed')
                 }}
               >
-                <div className='x'>X</div>
+                <img className='x' src={close} alt='close icon' />
               </div>
             </div>
           </div>
           <div className='folderContent'></div>
+          <div className='folderFooterBar'></div>
         </div>
       ))}
     </div>
