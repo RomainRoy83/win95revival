@@ -32,8 +32,20 @@ export const IconContextProvider = ({ children }) => {
     ]
   })
 
+  const [isOpen, setIsOpen] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ])
+
   return (
-    <IconContext.Provider value={{ activeIcon, setActiveIcon }}>
+    <IconContext.Provider
+      value={{ activeIcon, setActiveIcon, isOpen, setIsOpen }}
+    >
       {children}
     </IconContext.Provider>
   )

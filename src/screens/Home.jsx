@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Folder from '../components/Folder'
+import FolderContainer from '../components/FolderContainer'
 import Header from '../components/Header'
 import Icons from '../components/Icons'
 
@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Header />
       <Icons />
-      <Folder />
+      <FolderContainer />
     </div>
   )
 }
