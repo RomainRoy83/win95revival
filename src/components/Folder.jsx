@@ -1,30 +1,47 @@
-import { useDrag } from 'react-dnd'
-import { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext, useState, useCallback } from 'react'
 
 import IconContext from '../contexts/IconContext'
 
 import close from '../assets/img/ui/close.png'
 
 const Folder = ({ el }) => {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: 'folder',
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  }))
+  const [diffX, setDiffX] = useState(0)
+  const [diffY, setDiffY] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [styles, setStyles] = useState({})
+  const [zIndex, setZIndex] = useState(0)
 
-  const { isOpen } = useContext(IconContext)
+  const dragStart = e => {
+    document.getElementById(`topBar${el.id}`).setPointerCapture(e.pointerId)
+    setDiffX(e.screenX - e.currentTarget.getBoundingClientRect().left)
+    setDiffY(e.screenY - e.currentTarget.getBoundingClientRect().top)
+    setIsDragging(true)
+  }
 
-  useEffect(() => {
-    const checkFolder = document.getElementById(`folder${el.id}`)
-    console.log(checkFolder.getBoundingClientRect())
-  }, [isOpen])
+  const dragging = e => {
+    if (isDragging) {
+      let left = e.screenX - diffX
+      let top = e.screenY - diffY
+      setStyles({
+        left: left,
+        top: top
+      })
+    }
+  }
 
-  const moveFolder = (toX, toY) => {}
+  const dragEnd = e => {
+    setIsDragging(false)
+  }
 
   return (
-    <div id={`folder${el.id}`} className='folder'>
-      <div className='topBar'>
+    <div id={`folder${el.id}`} className='folder' style={styles}>
+      <div
+        className='topBar'
+        id={`topBar${el.id}`}
+        onPointerDown={dragStart}
+        onPointerMove={dragging}
+        onPointerUp={dragEnd}
+      >
         <div className='topBarLeft'>
           <div className='folderIcon'>
             <img src={el.name} alt='computer' />
