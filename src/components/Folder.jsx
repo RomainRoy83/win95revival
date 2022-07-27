@@ -1,6 +1,4 @@
-import React, { useEffect, useContext, useState, useCallback } from 'react'
-
-import IconContext from '../contexts/IconContext'
+import React, { useState } from 'react'
 
 import close from '../assets/img/ui/close.png'
 
@@ -9,9 +7,9 @@ const Folder = ({ el }) => {
   const [diffY, setDiffY] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [styles, setStyles] = useState({})
-  const [zIndex, setZIndex] = useState(0)
 
   const dragStart = e => {
+    toForeground()
     document.getElementById(`topBar${el.id}`).setPointerCapture(e.pointerId)
     setDiffX(e.screenX - e.currentTarget.getBoundingClientRect().left)
     setDiffY(e.screenY - e.currentTarget.getBoundingClientRect().top)
@@ -29,12 +27,36 @@ const Folder = ({ el }) => {
     }
   }
 
-  const dragEnd = e => {
+  const dragEnd = () => {
     setIsDragging(false)
   }
 
+  //Window comes to foreground when clicked
+  const toForeground = () => {
+    document.getElementById(`folder${el.id}`).style.zIndex = 1
+    const unfocusedFolders = document.querySelectorAll(
+      `.folder:not(#folder${el.id}`
+    )
+    const unfocusedFoldersArray = [...unfocusedFolders]
+    unfocusedFoldersArray.map(el => (el.style.zIndex = 0))
+  }
+
+  //Folder1 = Music
+  //Folder2 = Program
+  //Folder3 = Computer
+  //Folder4 = Notepad
+  //Folder5 = Disk on
+  //Folder6 = Folder
+  //Folder7 = Program
+  //Folder8 = Defragmenter
+
   return (
-    <div id={`folder${el.id}`} className='folder' style={styles}>
+    <div
+      id={`folder${el.id}`}
+      className='folder'
+      style={styles}
+      onPointerDown={toForeground}
+    >
       <div
         className='topBar'
         id={`topBar${el.id}`}
@@ -51,7 +73,7 @@ const Folder = ({ el }) => {
         <div className='topBarRight'>
           <div
             className='close'
-            onClick={() => {
+            onPointerDown={() => {
               const activeFolder = document.getElementById(`folder${el.id}`)
               activeFolder.classList.toggle('displayed')
             }}

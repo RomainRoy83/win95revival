@@ -1,21 +1,29 @@
+  .bsodActive {
+    height: 100vh;
+    width: 100vw;
+    background: url('../img/bsod-95.jpeg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+  }
+
 .icons {
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 70px;
+  width: 100px;
   margin: 20px 20px;
-  text-align: center;
   user-select: none;
   text-align: center;
 
   .active {
     background-color: blue;
   }
-
+  
   p {
     display: inline-block;
     padding: 0 2px;
     background-color: teal;
-    }
+  }
 }
