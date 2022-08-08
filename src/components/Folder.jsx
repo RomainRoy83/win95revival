@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
+import SubIcons from './SubIcons'
+
 import close from '../assets/img/ui/close.png'
+import cv from '../assets/img/cv.png'
 
 const Folder = ({ el }) => {
   const [diffX, setDiffX] = useState(0)
@@ -42,11 +45,11 @@ const Folder = ({ el }) => {
   }
 
   //Folder1 = Music
-  //Folder2 = Program
+  //Folder2 = Le déclin des âmes
   //Folder3 = Computer
   //Folder4 = Notepad
   //Folder5 = Disk on
-  //Folder6 = Folder
+  //Folder6 = Projets
   //Folder7 = Program
   //Folder8 = Defragmenter
 
@@ -82,7 +85,17 @@ const Folder = ({ el }) => {
           </div>
         </div>
       </div>
-      <div className='folderContent'></div>
+      <div className='folderContent'>
+        {el.id == 4 && (
+          <div className='contained'>
+            <a href={cv} download='cv'>
+              Télécharger mon CV pour le voir dans les années 2020
+            </a>
+            <img src={cv} alt='cv' />
+          </div>
+        )}
+        {el.id == 6 && <SubIcons />}
+      </div>
       <div className='folderFooterBar'></div>
     </div>
   )

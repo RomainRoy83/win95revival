@@ -1,0 +1,13 @@
+.subIcons {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(6, 80px);
+  row-gap: 10px;
+  flex-wrap: wrap;
+  padding: 15px 0;
+
+  .active {
+    background-color: blue;
+    color: white
+  }
+}

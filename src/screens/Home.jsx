@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import FolderContainer from '../components/FolderContainer'
 import Header from '../components/Header'
 import Icons from '../components/Icons'
-
+//To do : add old photos in a folder, like an album + démineur
 const Home = () => {
-  const [bsodState, setBsodState] = useState(false)
-
-  useEffect(() => {
-    if (bsodState === true) {
-      document.addEventListener('keydown', event => {
-        location.reload()
-      })
-    }
-  })
-
   return (
     <div>
       <Header />
-      <Icons bsodState={bsodState} setBsodState={setBsodState} />
+      <Icons />
       <FolderContainer />
     </div>
   )
